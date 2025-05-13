@@ -1,0 +1,19 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: index.html");
+    exit;
+}
+$user = $_SESSION['user'];
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Welcome, <?= htmlspecialchars($user['username']) ?>!</h1>
+  <p>Role: <?= htmlspecialchars($user['role']) ?></p>
+  <!-- Add role-based navigation here -->
+</body>
+</html>
